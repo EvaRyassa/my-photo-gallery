@@ -1,0 +1,210 @@
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0, .6);
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+
+
+.modal-close {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.modal-close .fa {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 15px;
+    font-size: 36px;
+    color: #ddd;
+}
+
+.modal-close:hover .fa {
+    color: #fff;
+}
+
+.modal-body {
+    display: flex;
+    max-width: 1280px;
+    min-width: 360px;
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000;
+    border-radius: 3px;
+}
+
+
+.modal-comment-block{
+    width: 380px;
+    height: 100%;
+    background: #e2e2e2;
+    padding: 15px;
+
+}
+
+.modal-photo-block {
+    width: 100%;
+    display: flex;
+    flex-direction: column
+}
+
+.photo-view {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: calc(100% - 49px);
+    position: relative;
+}
+
+.photo-view .fa {
+    opacity: 0;
+    height: 100%;
+    width: 25%;
+    position: absolute;
+    top: 0;
+    font-size: 31px;
+    display: flex !important;
+    align-items: center;
+    text-shadow: 0 0 5px #fff;
+    cursor: pointer;
+}
+
+.photo-view .fa:hover {
+    opacity: 1;
+    transition-duration: 1s;
+}
+
+.photo-view .fa.btn-prev {
+    left: 0;
+    padding-left: 15px;
+}
+.photo-view .fa.btn-next {
+    right: 0;
+    padding-right: 15px;
+    justify-content: flex-end;
+}
+
+.photo-view img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.photo-info {
+    color: #fff;
+    padding: 15px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid #a9a9a9;
+    outline: 0;
+    padding: 8px;
+    border-radius: 3px;
+    font-family: 'Roboto';
+}
+.fa.fa-heart {
+    margin: 15px 0;
+    cursor: pointer;
+    opacity: .33;
+    font-size: 27px;
+}
+
+.fa.fa-heart:hover{
+    opacity: .5;
+}
+
+.fa.fa-heart.active {
+    color: #db1313;
+    opacity: 1;
+    text-shadow: 0 0 5px #383838;
+}
+
+.fa.fa-heart.active:hover {
+    text-shadow: 0 0 5px #000;
+    opacity: .7;
+}
+
+.submit {
+    padding: 5px;
+    width: 100px;
+    border: 1px solid #989898;
+    border-radius: 5px;
+    text-align: center;
+    float: right;
+    margin-top: 15px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.submit:hover{
+    opacity: 1;
+}
+
+.user-photo {
+    float: left;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-photo img {
+    width: 100%;
+    height: 100%;
+}
+
+.comment-content {
+    margin-left: 42px;
+}
+
+.comment-author {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.36;
+}
+
+.comment-items {
+    overflow: auto;
+    height: calc(100% - 115px);
+    margin-right: -15px;
+}
+
+
+@media screen and (max-width: 890px) {
+    .modal-wrapper{
+        overflow: auto;
+    }
+    .modal-body {
+        position: relative;
+        display: block;
+        transform: none;
+        margin-top: 64px;
+        height: auto;
+        top: 0;
+        left: 0;
+    }
+    .modal-comment-block {
+        width: 100%;
+        min-height: 150px;
+        height: auto;
+    }
+}

@@ -1,0 +1,33 @@
+.content {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    min-width: 360px;
+}
+
+.content .photo-album {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 5px;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.content .photo-album .photo-album-item {
+    width: 100%;
+    height: 150px;
+    cursor: zoom-in;
+}
+.content div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 890px) {
+    .content .photo-album {
+        top: 69px;
+    }
+}
