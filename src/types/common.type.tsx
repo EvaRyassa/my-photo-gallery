@@ -1,6 +1,6 @@
 export type filterType = '' | 'nature'| 'animal'| 'auto' | 'architecture';
 
-interface commentItem {
+export interface commentItem {
     name:string
     text: string
 }

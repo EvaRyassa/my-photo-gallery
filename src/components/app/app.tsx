@@ -54,8 +54,8 @@ class App extends Component{
     }
 
     render() {
-
-        const {isOpen, photo, filter} = this.state;
+        const filter = document.location.pathname.slice(1);
+        const {isOpen, photo} = this.state;
         return (
             <div className='container'>
             <Router>

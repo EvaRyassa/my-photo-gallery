@@ -2,6 +2,8 @@ import './photo-modal.css';
 import {Component} from "react";
 import filterPhotoDatabase from "../../utils/filter-photo-database";
 import getRandomPersone from "../../utils/get-random-persone";
+import {getComments} from "../../utils/get-comments";
+import {saveToLocalStorage} from "../../photos-database";
 interface photoModalState {
     hide: boolean
     index: number | null
@@ -42,13 +44,13 @@ class PhotoModal extends Component {
      * рендер блока с фото
      */
     photoView = () => {
-        const {photos, index, length} = this.currentPhotoItem();
+        const {index, length,photo} = this.currentPhotoItem();
         return (
 
             <div className="photo-view">
                 <div className="fa fa-chevron-left btn-prev" onClick={()=> this.onClickPrev(index, length)}></div>
                 <div className="fa fa-chevron-right btn-next" onClick={()=> this.onClickNext(index, length)}></div>
-                <img src={photos[index].src} alt=""/>
+                <img src={photo.src} alt=""/>
 
             </div>
         )
@@ -160,10 +162,16 @@ class PhotoModal extends Component {
     onSubmit = () => {
         if (this.state.comment.length > 0) {
             const {photo} = this.currentPhotoItem();
+            const name = getRandomPersone();
+            const text =  this.state.comment;
             photo.comments.push({
-                name: getRandomPersone(),
-                text: this.state.comment,
-            })
+                name: name,
+                text: text,
+            });
+            saveToLocalStorage(photo.id, {
+                comments: photo.comments,
+                like: photo.like
+            });
         }
         this.setState({comment: ''})
     }
@@ -175,6 +183,10 @@ class PhotoModal extends Component {
         const {photo} = this.currentPhotoItem();
         photo.like = !photo.like;
         this.setState({like: photo.like});
+        saveToLocalStorage(photo.id, {
+            comments: photo.comments,
+            like: photo.like
+        });
 
     }
 
